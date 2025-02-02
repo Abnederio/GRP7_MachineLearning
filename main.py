@@ -18,7 +18,7 @@ st.image(img,width=800, channels='RGB',caption=None)
 
 
 
-model = load_model('heart_failure_clinical_records.keras', compile = True)
+model = load_model('heart_failure_clinical_records.keras')
 history = pickle.load(open('training_history','rb'))
 
 def alive_or_dead():
@@ -65,10 +65,10 @@ def alive_or_dead():
     return data
 
 alive_or_not=alive_or_dead()
-prediction = model.predict(alive_or_not, steps=1)
+prediction = model.predict(alive_or_not)
 pred = [round(x[0]) for x in prediction]
 
-if pred ==[0]:
-    st.header('You are Dead')
-else:
+if pred[0] == 0:
     st.header('You are Alive')
+else:
+    st.header('You are Dead')
