@@ -72,3 +72,5 @@ if pred[0] == 0:
     st.header('You are Alive')
 else:
     st.header('You are Dead')
+    
+print(pred)
